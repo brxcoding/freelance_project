@@ -5,7 +5,7 @@ django-cors-headers==4.7.0
 channels==4.2.0
 channels-redis==4.2.1
 daphne==4.1.2
-mysqlclient==2.2.7
+PyMySQL==1.1.0
 stripe==11.6.0
 python-dotenv==1.0.1
 gunicorn==23.0.0
