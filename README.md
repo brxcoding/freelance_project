@@ -57,7 +57,7 @@ Set `VITE_API_URL`, `VITE_WS_URL`, `VITE_CLOUDINARY_CLOUD_NAME`, and `VITE_CLOUD
 ```bash
 cd backend
 python -m venv .venv
-source .venv/bin/activate
+source .venv/Scripts/activate
 pip install -r requirements.txt
 cp .env.example .env
 python manage.py migrate

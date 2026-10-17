@@ -176,3 +176,5 @@ def stripe_webhook(request):
         order.save(update_fields=["status"])
         notify(order.freelancer, Notification.Kind.ORDER, "Payment received", f"Order #{order.id} is paid and ready to start.", {"order_id": order.id})
     return Response(status=200)
+
+
