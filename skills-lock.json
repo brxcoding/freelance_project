@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "skills": {
+    "upstash-qstash-js": {
+      "source": "upstash/skills",
+      "sourceType": "github",
+      "skillPath": "skills/upstash-qstash-js/SKILL.md",
+      "computedHash": "667d04391dd04a5d4dbfa7800ff0cc7989136698cfd5c125181b8ee5f318c138"
+    },
+    "upstash-workflow-js": {
+      "source": "upstash/skills",
+      "sourceType": "github",
+      "skillPath": "skills/upstash-workflow-js/SKILL.md",
+      "computedHash": "c3d813a184171fcfeae2233c6bd906c3146f68b99d91133dea90759bfbd0c64e"
+    }
+  }
+}
