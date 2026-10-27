@@ -1,7 +1,7 @@
 from django.urls import include, path
 from rest_framework.routers import DefaultRouter
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
-from .views import AdminDashboardView, AdminUserView, CategoryViewSet, ChangePasswordView, ConversationViewSet, DashboardView, DisputeViewSet, MeView, NotificationViewSet, OrderViewSet, PlatformSettingView, RegisterView, ReviewViewSet, ServiceViewSet, stripe_webhook
+from .views import AdminDashboardView, AdminUserView, CategoryViewSet, ChangePasswordView, ConversationViewSet, DashboardView, DisputeViewSet, MeView, NotificationViewSet, OrderViewSet, PlatformSettingView, RegisterView, ReviewViewSet, ServiceViewSet, stripe_webhook, redis_status
 
 router = DefaultRouter()
 router.register("categories", CategoryViewSet)
@@ -24,4 +24,5 @@ urlpatterns = [
     path("admin/users/<int:pk>/", AdminUserView.as_view()),
     path("admin/settings/", PlatformSettingView.as_view()),
     path("stripe/webhook/", stripe_webhook),
+    path("status/", redis_status),
 ]

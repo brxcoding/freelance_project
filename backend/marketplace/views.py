@@ -12,6 +12,14 @@ from .models import Category, Conversation, Dispute, Notification, Order, Platfo
 from .notifications import notify
 from .permissions import IsAdminRole, IsFreelancerOrReadOnly
 from .serializers import CategorySerializer, ConversationSerializer, DisputeSerializer, MessageSerializer, NotificationSerializer, OrderSerializer, PlatformSettingSerializer, RegisterSerializer, ReviewSerializer, ServiceSerializer, UserSerializer
+from django.http import JsonResponse
+from upstash_redis import Redis
+import os
+
+redis = Redis(
+    url=os.environ["UPSTASH_REDIS_REST_REDIS_URL"],
+    token=os.environ["UPSTASH_REDIS_REST_KV_REST_API_TOKEN"],
+)
 
 class RegisterView(APIView):
     permission_classes = [AllowAny]
@@ -176,5 +184,10 @@ def stripe_webhook(request):
         order.save(update_fields=["status"])
         notify(order.freelancer, Notification.Kind.ORDER, "Payment received", f"Order #{order.id} is paid and ready to start.", {"order_id": order.id})
     return Response(status=200)
+
+def redis_status(request):
+    redis.set("status", "Redis is running successfully!")
+    data = redis.get("status")
+    return JsonResponse({"message": data})
 
 
